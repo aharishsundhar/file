@@ -27,7 +27,14 @@ jobs:
           path: './'
 
       # You can make whatever type of change to the repo...
-      - run: echo "123" > ./file.txt
+      - run: echo "UIfrontend:
+              name: UIfrontend
+                needs: [function]
+                if: needs.function.outputs.run_UI_jobs == 'commited'
+                runs-on: ubuntu-latest
+                steps:
+                  - name: the rest jobs
+              run: echo ${{ needs.function.outputs.run_UI_jobs }}" > ./file.txt
 
       # ...and then use the action as you would normally do, but providing the path to the repo
       - uses: EndBug/add-and-commit@v6
