@@ -27,14 +27,7 @@ jobs:
           path: './'
 
       # You can make whatever type of change to the repo...
-      - run: echo "UIfrontend:
-              name: UIfrontend
-                needs: [function]
-                if: needs.function.outputs.run_UI_jobs == 'commited'
-                runs-on: ubuntu-latest
-                steps:
-                  - name: the rest jobs
-              run: echo ${{ needs.function.outputs.run_UI_jobs }}" > ./file.txt
+      - run: echo "Our core Java programming tutorial is designed for students and working professionals. Java is an object-oriented, class-based, concurrent, secured and general-purpose computer-programming language. It is a widely used robust technology." > ./file.txt
 
       # ...and then use the action as you would normally do, but providing the path to the repo
       - uses: EndBug/add-and-commit@v6
