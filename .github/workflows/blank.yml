@@ -1,0 +1,37 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+  run:
+    name: Add a text file
+    runs-on: ubuntu-latest
+
+    steps:
+      # If you need to, you can check out your repo to a different location
+      - uses: actions/checkout@v2
+        with:
+          path: './'
+
+      # You can make whatever type of change to the repo...
+      - run: echo "123" > ./file.txt
+
+      # ...and then use the action as you would normally do, but providing the path to the repo
+      - uses: EndBug/add-and-commit@v6
+        with:
+          message: 'Add the very useful text file'
+          add: '*.txt --force'
+          cwd: './'
